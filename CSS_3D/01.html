@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Interactive Web</title>
+  <style>
+    .world {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60vw;
+      height: 60vh;
+      background: #fff000;
+      perspective: 500px; 
+      /* 3d효과를 위한 원근감 속성 - 얼마나 내 눈에서 멀리있는 시점에서 볼건지(숫자가 작을수록 눈 가까이에 있는것처럼 3d효과가 극적이게? 크게 나타남) */
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 150px;
+      margin: 1rem;
+      border-radius: 0.5em; /* 현재 font-size(1.5rem)에 비례하기 위해 em 사용 */
+      font-size: 1.5rem;
+      background: red;
+      /* transform: rotateY(45deg); */
+      /* transform: perspective(500px) rotateY(45deg); 눈의 시점이 아닌 회전되는 속성이 동일하게 나타나려면 부모가 아닌 현재 요소에 적용 */
+      transition: 1s;
+      transform: rotateY(0deg); /* 변화 없는 디폴트 상태도 지정을 해주는게 브라우저의 성능? 받아들이는 데에 있어 좋음 */
+    }
+    .world:hover .card{transform: rotateY(180deg);}
+  </style>
+</head>
+
+<body>
+  <div class="world">
+    <div class="card">A</div>
+    <div class="card">B</div>
+    <div class="card">C</div>
+  </div>
+</body>
+
+</html>
